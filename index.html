@@ -242,6 +242,207 @@
 (function(){
   "use strict";
   var CHAVE = "pauta-dados-v1";
+  var CHAVE_SEMENTE = "pauta-semente-versao";
+  var SEMENTE_VERSAO = 1;
+  /* Conteudo que ja vem no site. Quem abre pela primeira vez recebe tudo isto;
+     depois disso manda o que estiver salvo no navegador da pessoa. */
+  var SEMENTE = {
+  "tarefas": [],
+  "textos": [
+    {
+      "id": "mu2o04ydjqvdr",
+      "titulo": "MANUAL IOT",
+      "corpo": "📶🚀 Segue MANUAL DE UTILIZAÇÃO PORTAL CHIPMAX PRO:\ntrackmax.com.br/manuais/iot-v2/",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476329749
+    },
+    {
+      "id": "mu2o0r9yblnqc",
+      "titulo": "VIDEO PRIMEIRO ACESSO",
+      "corpo": "📌 Primeiro Acesso – Vídeo Treinamento da Plataforma\n\nPara fazer suas primeiras utilizações na plataforma, é muito importante assistir a este vídeo!\n\n🎥 Confira o passo a passo completo aqui:\n▶️ https://youtu.be/TO_5xRyRXvo?si=a9R8RV2gmf5LOb7U",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476358678
+    },
+    {
+      "id": "mu2o11e55ksd6",
+      "titulo": "VIDEO GEOCERCA",
+      "corpo": "🎥 Vídeo Manual: Criando e Utilizando Geocercas\n\nAprenda como criar e usar geocercas para monitorar áreas específicas e otimizar a gestão da sua frota na plataforma TrackMax. Controle entradas e saídas com mais precisão e segurança.\n\n▶️ Assista ao tutorial completo:\nhttps://youtu.be/fmqx98qQMrM?si=r86F7-nDaq7TT139",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476371789
+    },
+    {
+      "id": "mu2o1ftlytt1w",
+      "titulo": "CANAL TRACKMAX",
+      "corpo": "📺 Canal TrackMax no YouTube\n\nAcesse nosso canal e confira vídeos com manuais de utilização, funcionalidades da plataforma e informativos úteis para facilitar seu dia a dia.\n\n🔗 Segue o link:\nhttps://youtube.com/@trackmax-tmaxtelecom?si=8XQSdVYPP6rf9wA6\n\n📌 Inscreva-se e ative as notificações para não perder nenhuma atualização! 😉",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476390489
+    },
+    {
+      "id": "mu2o1zmgepnfw",
+      "titulo": "RELATORIO DE VIAGENS",
+      "corpo": "🎥 Vídeo Manual: Relatórios de Viagens, Paradas e Resumos\n\nDescubra como gerar e interpretar relatórios detalhados de viagens, paradas e resumos para uma gestão eficiente da sua frota na plataforma TrackMax.\n\n▶️ Assista ao tutorial completo:\nhttps://youtu.be/50hFNVKQ4YU?si=vv3TsJDPvI1fUW5J",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476416152
+    },
+    {
+      "id": "mu2o2qjwjqyyz",
+      "titulo": "RELATORIO DE ROTA",
+      "corpo": "🎥 Vídeo Manual: Novo Relatório de Rota Plotado no Mapa\n\nConfira o passo a passo para gerar e visualizar o novo relatório de rota plotado no mapa diretamente pela plataforma TrackMax. Facilite a análise das rotas da sua frota com essa funcionalidade prática e visual.\n\n▶️ Assista ao tutorial completo:\nhttps://youtu.be/R1TFDMraDbw?si=d1UE-RFoK1vsUleF",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476451052
+    },
+    {
+      "id": "mu2o2zy4m30ab",
+      "titulo": "DESBLOQUEIO",
+      "corpo": "🚗 Dificuldade para desbloquear o veículo?\n⚠️ Siga estas orientações 👇\n\n1️⃣ Mantenha a ignição ligada.\n2️⃣ Envie o comando de SMS apenas uma vez e aguarde.\n3️⃣ Solicite o reset do chip (pode ajudar a restabelecer a conexão).\n⏱️ Mantenha a paciência — o processo pode levar alguns minutos até que o rastreador volte a responder.\n4️⃣ Verifique o relatório de rota — veja se há alerta de Power Cut (corte de alimentação) ou tensão baixa.\n5️⃣ Após o reset, peça ao cliente que mantenha a ignição ligada por alguns minutos.\n\n🔄 Em último caso, confirme se é possível movimentar o veículo alguns metros, para forçar nova atualização.\n\n✅ Seguindo esses passos, o rastreador deve voltar a responder normalmente.",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476463228
+    },
+    {
+      "id": "mu2o37pos9a9k",
+      "titulo": "CONEXÕES NA PLATAFORMA DE RASTREAMENTO",
+      "corpo": "CONEXÕES NA PLATAFORMA DE RASTREAMENTO\nCores e Status:\n\n🟢 ON-LINE\n🔴 OFF-LINE\n🔵 MOVIMENTO",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476473292
+    },
+    {
+      "id": "mu2o3trod86yf",
+      "titulo": "DIFICULDADE AO ACESSAR A PLATAFORMA",
+      "corpo": "📢 Dificuldades de acesso à plataforma de Rastreamento Veicular TrackMax\n\nSe você está enfrentando lentidão, instabilidade ou não consegue acessar a plataforma, siga as orientações abaixo antes de acionar o suporte técnico:\n\n🔹 1. Limpe o cache do navegador\nApague os dados temporários e cookies.\n\n🔹 2. Verifique se o navegador está atualizado\nUse a versão mais recente do seu navegador de preferência.\n\n🔹 3. Confira o idioma padrão\nO idioma principal do navegador deve estar como Português (Brasil).\n\n🔹 4. Reinicie o computador\nApós as etapas anteriores, reinicie o computador e tente novamente.\n\n🔹 5. Teste sua conexão de internet\nAcesse https://ping-test.net para verificar sua conexão.",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476501876
+    },
+    {
+      "id": "mu2o48onfhekq",
+      "titulo": "DIFICULDADES AO ACESSAR O APP",
+      "corpo": "📲 Dificuldades para acessar e utilizar o Aplicativo de Rastreamento?\n\n💡 Se estiver com problemas no acesso, veja alguns motivos comuns:\n* iOS desatualizado (iPhone)\n* Modo economia de energia ativado\n* Modo noturno ou alteração no tamanho da fonte (podem afetar notificações e acesso)\n* Uso de chip pré-pago\n* Conexão com chips da Vivo (alguns casos de bloqueio)\n* Senhas muito simples, como \"123\" ou \"123456\"\n\n✅ O que fazer:\n* Atualize o iOS para a versão mais recente\n* Desative economia de energia, modo noturno ou ajuste a fonte para o padrão\n* Troque a senha por algo mais seguro (ex.: CPF ou \"2025\")\n* Teste o acesso via Wi-Fi estável\n\n⚙️ Se ainda assim não funcionar, entre em contato com nosso suporte que resolvemos para você! 💬",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476521207
+    },
+    {
+      "id": "mu2o4k1r66du3",
+      "titulo": "MANUAIS FABRICANTES",
+      "corpo": "🔹 Manuais Originais dos Fabricantes\n📍 Acesse: https://trackmax.com.br/manuais/rastreadores/fabricantes/\n\n* Conteúdo direto dos fabricantes\n* Manuais completos, atualizados e detalhados\n* Ideal para informações mais técnicas e avançadas",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476535935
+    },
+    {
+      "id": "mu2o4yhju2p26",
+      "titulo": "COMANDOS SMS",
+      "corpo": "🔹 Comandos SMS para Configurar Rastreadores\n📍 Acesse: https://trackmax.com.br/manuais/rastreadores/configurar/\n\n🔸 Aqui você tem:\n* Comandos SMS prontos para copiar e colar\n* Configurações diversas como APN, IP, porta etc.\n* Suporte para várias marcas e modelos",
+      "marcador": "",
+      "usos": 1,
+      "criado": 1789476554647
+    },
+    {
+      "id": "mu2o5w3vs3bxt",
+      "titulo": "SUPORTADOS",
+      "corpo": "🔹 Modelos Suportados + IP/DNS da Plataforma\n📍 Acesse: https://trackmax.com.br/suportados/\n\n🔸 Aqui você encontra:\n* O IP fixo e o DNS da plataforma TrackMax\n* Lista completa de modelos de rastreadores compatíveis\n* Qual porta usar para cada modelo",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476598219
+    },
+    {
+      "id": "mu2o6503nzgef",
+      "titulo": "PRODUTOS TRACKMAX",
+      "corpo": "🔹 Manuais dos Produtos – Marca TrackMax\n📍 Acesse: https://trackmax.com.br/manuais/trackmax/\n\n🔸 Nesta página estão:\n* Todos os manuais técnicos dos equipamentos da marca TrackMax\n* Guias de instalação, configuração e funcionamento\n* PDFs atualizados e prontos para download",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476609747
+    },
+    {
+      "id": "mu2o6nd2izjep",
+      "titulo": "NUMEROS DIGITADOS",
+      "corpo": "Para formalizar sua ativação, preciso que me informe os números digitados dos chips. 🙏\n\nIsso garante mais agilidade e evita falhas na ativação.",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476633542
+    },
+    {
+      "id": "mu2o766fct73y",
+      "titulo": "ATIVAÇÃO POR FOTO",
+      "corpo": "Caso não consiga digitar agora, posso realizar a ativação a partir das fotos dessa vez — mas peço que nas próximas solicitações envie os números digitados, combinado? ✅",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476657927
+    },
+    {
+      "id": "mu2o7femknnem",
+      "titulo": "LINHA NÃO LOCALIZADA",
+      "corpo": "Linha não localizada em nossa base.\n\nPode me confirmar se digitou os números corretamente? 🙏",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476669886
+    },
+    {
+      "id": "mu2o86qidxtpl",
+      "titulo": "INSTALAÇÃO",
+      "corpo": "🚀 Quer dominar a instalação e bloqueio de veículos com rastreadores?\n\nA TrackMax oferece o maior portal exclusivo de conteúdo técnico para empresas de Rastreamento Veicular!\n\nAcesso a manuais detalhados, fotos, vídeos e muito mais — tudo organizado para facilitar o seu trabalho.\n\n🔒 Garanta já seu acesso e impulsione seu negócio!\n\n📲 Assine agora: https://trackmax.tec.br/joinnow",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476705306
+    },
+    {
+      "id": "mu2o8nayuxw5g",
+      "titulo": "APP IOS",
+      "corpo": "📲 App TrackMax para iPhone (iOS)\n\nBaixe nosso aplicativo na App Store:\n\n🔗 https://apps.apple.com/us/app/trackmax-v4/id6469571726\n\nApós instalar:\n1️⃣ Abra o app\n2️⃣ Faça login com os dados da plataforma\n3️⃣ Permita as notificações para receber alertas em tempo real ✅\n\nQualquer dificuldade, nosso suporte ajuda você. 💙",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476726778
+    },
+    {
+      "id": "mu2o8woioz4qt",
+      "titulo": "APP ANDROID",
+      "corpo": "📲 App TrackMax para Android\n\nBaixe nosso aplicativo no Google Play:\n\n🔗 https://play.google.com/store/apps/details?id=app.trackmaxv4.android\n\nApós instalar:\n1️⃣ Abra o app\n2️⃣ Faça login com os dados da plataforma\n3️⃣ Permita as notificações para receber alertas em tempo real ✅\n\nQualquer dificuldade, nosso suporte ajuda você. 💙",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476738930
+    },
+    {
+      "id": "mu2o97mv2ofxp",
+      "titulo": "RESET FISICO",
+      "corpo": "🔄 RESET FÍSICO\n\nPor favor, siga as instruções abaixo com atenção:\n\n1️⃣ Desligue o chicote de alimentação do equipamento.\n2️⃣ Desconecte a bateria interna do rastreador.\n3️⃣ Remova o chip.\n4️⃣ Aguarde 30 segundos.\n5️⃣ Reinstale o chip no slot.\n6️⃣ Reconecte o chicote de alimentação.\n7️⃣ Assim que os LEDs (luzes) começarem a piscar, reconecte a bateria interna.\n\n✅ Pronto!\nApós esse procedimento, aguarde alguns minutos e verifique o funcionamento na plataforma.",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476753127
+    },
+    {
+      "id": "mu2o9k1y3xvof",
+      "titulo": "GPS TRAVADO",
+      "corpo": "🟢 Rastreador Online, mas localização incorreta?\n\nSe o dispositivo aparece Online (verde) na plataforma, mas a localização está imprecisa ou errada, o problema está relacionado ao sinal de GPS.\n\n⚠️ Solicitar reset no chip não resolve essa situação!\n\n📍 O que fazer:\nVocê pode enviar um SMS de reset ou um comando para forçar o GPS.\n📲 Antes disso, confirme com o cliente se o veículo está estacionado em um local com céu aberto, pois isso facilita a captação do sinal.\n\n📌 Principais causas de falha na localização GPS:\n\n1️⃣ Local onde o veículo está:\nÁreas com baixa cobertura, como garagens ou estacionamentos subterrâneos, bloqueiam o sinal.\n\n2️⃣ Posição do rastreador no veículo:\nInstalação em locais inadequados compromete o funcionamento do GPS, ou o equipamento pode estar solto.\n\n3️⃣ Defeito no equipamento:\nO rastreador pode estar com falha no módulo GPS.",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476769222
+    },
+    {
+      "id": "mu2oa2dboro7s",
+      "titulo": "COMANDOS BAISCOS TRACKMAX",
+      "corpo": "📄 Comandos SMS Básicos — Rastreadores TrackMax\n\nSegue o link com os comandos SMS básicos para os rastreadores da marca TrackMax:\n\n🔗 https://trackmax.com.br/manuais/trackmax/sms/\n\n📋 Inclui 12 modelos:\n* 4G: One, 4G, Mini, Speed, OBD, Pro, Portátil S20\n* 2G: V1, V2, M1, X1, EV02\n\n🔧 Comandos para reset, conexões e bloqueio/desbloqueio.\nPara funções avançadas, contate o suporte técnico.",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476792959
+    },
+    {
+      "id": "mu2oar0rriphg",
+      "titulo": "FINANCEIRO",
+      "corpo": "💰 Painel do Cliente – Financeiro\n\nDeseja efetuar o pagamento ou consultar suas cobranças?\n\n🔗 Acesse o link abaixo:\nhttp://pay.trackmax.com.br/faturas/64a83ca7-d7a1-437c-a70b-b10731f4e033/\n\n📌 Para acessar, você precisará do e-mail e CPF ou CNPJ de cadastro.\n❓ Caso não saiba, entre em contato conosco que ajudamos você! ✅",
+      "marcador": "",
+      "usos": 0,
+      "criado": 1789476824907
+    }
+  ]
+};
   var dados = { tarefas: [], textos: [] };
   var aba = "tarefas";
   var filtro = "abertas";
@@ -289,22 +490,59 @@
       marcar("ok");
     }catch(e){ marcar("erro"); }
   }
+  function clonarSemente(){
+    return JSON.parse(JSON.stringify(SEMENTE));
+  }
+  /* Itens da semente que a pessoa ainda não tem, comparados por id.
+     Assim uma atualização do site acrescenta o que é novo sem
+     encostar no que ela já escreveu ou editou. */
+  function completarComSemente(){
+    var s = clonarSemente();
+    ["tarefas", "textos"].forEach(function(lista){
+      var tenho = {};
+      dados[lista].forEach(function(item){ tenho[item.id] = true; });
+      s[lista].forEach(function(item){
+        if(!tenho[item.id]) dados[lista].push(item);
+      });
+    });
+  }
   function carregar(){
     // localStorage lança em janela anônima ou com dados de site bloqueados
     try{
       localStorage.setItem(CHAVE + "-teste", "1");
       localStorage.removeItem(CHAVE + "-teste");
     }catch(e){
+      dados = clonarSemente();
       semArmazenamento = true; marcar("memoria"); return;
     }
+
+    var bruto = null;
+    try{ bruto = localStorage.getItem(CHAVE); }catch(e){}
+
+    if(!bruto){
+      // primeira visita neste navegador: entrega o conteúdo padrão já pronto
+      dados = clonarSemente();
+      localStorage.setItem(CHAVE_SEMENTE, String(SEMENTE_VERSAO));
+      gravar();
+      return;
+    }
+
     try{
-      var bruto = localStorage.getItem(CHAVE);
-      if(bruto){
-        var d = JSON.parse(bruto);
-        dados.tarefas = Array.isArray(d.tarefas) ? d.tarefas : [];
-        dados.textos  = Array.isArray(d.textos)  ? d.textos  : [];
-      }
-    }catch(e){ /* chave corrompida: começa vazio em vez de travar */ }
+      var d = JSON.parse(bruto);
+      dados.tarefas = Array.isArray(d.tarefas) ? d.tarefas : [];
+      dados.textos  = Array.isArray(d.textos)  ? d.textos  : [];
+    }catch(e){
+      // chave corrompida: recomeça do padrão em vez de abrir vazio
+      dados = clonarSemente();
+    }
+
+    var vista = parseInt(localStorage.getItem(CHAVE_SEMENTE), 10) || 0;
+    if(vista < SEMENTE_VERSAO){
+      completarComSemente();
+      localStorage.setItem(CHAVE_SEMENTE, String(SEMENTE_VERSAO));
+      gravar();
+      return;
+    }
     marcar("ok");
   }
 
