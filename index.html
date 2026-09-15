@@ -283,26 +283,29 @@
     marcar("salvando");
     timer = setTimeout(gravar, 350);
   }
-  async function gravar(){
+  function gravar(){
     try{
-      var r = await window.storage.set(CHAVE, JSON.stringify(dados), false);
-      marcar(r ? "ok" : "erro");
+      localStorage.setItem(CHAVE, JSON.stringify(dados));
+      marcar("ok");
     }catch(e){ marcar("erro"); }
   }
-  async function carregar(){
+  function carregar(){
+    // localStorage lança em janela anônima ou com dados de site bloqueados
     try{
-      var r = await window.storage.get(CHAVE, false);
-      if(r && r.value){
-        var d = JSON.parse(r.value);
+      localStorage.setItem(CHAVE + "-teste", "1");
+      localStorage.removeItem(CHAVE + "-teste");
+    }catch(e){
+      semArmazenamento = true; marcar("memoria"); return;
+    }
+    try{
+      var bruto = localStorage.getItem(CHAVE);
+      if(bruto){
+        var d = JSON.parse(bruto);
         dados.tarefas = Array.isArray(d.tarefas) ? d.tarefas : [];
         dados.textos  = Array.isArray(d.textos)  ? d.textos  : [];
       }
-      marcar("ok");
-    }catch(e){
-      // chave ainda não existe: normal na primeira abertura
-      try{ await window.storage.set(CHAVE, JSON.stringify(dados), false); marcar("ok"); }
-      catch(e2){ semArmazenamento = true; marcar("memoria"); }
-    }
+    }catch(e){ /* chave corrompida: começa vazio em vez de travar */ }
+    marcar("ok");
   }
 
   /* ---------- seleção ---------- */
@@ -682,12 +685,11 @@
     }
   });
 
-  carregar().then(function(){
-    desenhar();
-    if(semArmazenamento){
-      $("painel").insertAdjacentHTML("afterbegin",
-        '<div class="aviso">O armazenamento não respondeu. Suas anotações valem só nesta sessão — baixe um backup antes de fechar.</div>');
-    }
-  });
+  carregar();
+  desenhar();
+  if(semArmazenamento){
+    $("painel").insertAdjacentHTML("afterbegin",
+      '<div class="aviso">O navegador bloqueou o armazenamento (janela anônima?). Suas anotações valem só nesta sessão — baixe um backup antes de fechar.</div>');
+  }
 })();
 </script>
